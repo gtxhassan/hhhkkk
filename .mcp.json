@@ -1,0 +1,44 @@
+{
+  "mcpServers": {
+    "openai-tools": {
+      "command": "python",
+      "args": [
+        "mcp_servers/openai_server.py"
+      ],
+      "env": {
+        "OPENAI_API_KEY": "${OPENAI_API_KEY}",
+        "OPENAI_MODEL": "gpt-4o"
+      }
+    },
+    "anthropic-tools": {
+      "command": "python",
+      "args": [
+        "mcp_servers/claude_server.py"
+      ],
+      "env": {
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}",
+        "ANTHROPIC_MODEL": "claude-3-5-sonnet"
+      }
+    },
+    "ollama-local": {
+      "command": "ollama",
+      "args": [
+        "run",
+        "llama3.2"
+      ],
+      "env": {
+        "OLLAMA_HOST": "http://localhost:11434"
+      }
+    },
+    "rag-server": {
+      "command": "python",
+      "args": [
+        "mcp_servers/rag_server.py"
+      ],
+      "env": {
+        "VECTOR_DB": "faiss",
+        "EMBEDDING_MODEL": "text-embedding-3-small"
+      }
+    }
+  }
+}
